@@ -1,13 +1,13 @@
 # plesk_emailcounter_extension
 This extension for Plesk provides the admin with an overview of the total amounts of succesfully sent e-mails per day for the last 30 days.
 
-**Step 1.**
+**Step 1.**\
 Create the extension:
 `plesk bin extension --create emailcounter`
 
 and register it: `plesk bin extension --register emailcounter`
 
-**Step 2.**
+**Step 2.**\
 Edit the /usr/local/psa/admin/plib/modules/emailcounter/views/scripts/index/index.phtml by inserting this code:
 ```
 <?php
@@ -75,7 +75,7 @@ $liveEmailCount = getLiveEmailCount();
 </html>
 ```
 
-**Step 3.**
+**Step 3.**\
 Create a bashscript that pulls the total amounts of succesfully sent e-mail messages from the maillog and logs it in a json file that's accessible to the psaadm user: `/usr/local/bin/mail_log_processor.sh`
 
 Enter this code inside the file:
@@ -115,7 +115,7 @@ echo "$JSON" > "$LOGFILE"
 ```
 and make it executable: `chmod +x /usr/local/bin/mail_log_processor.sh`
 
-**Step 4.**
+**Step 4.**\
 Create a systemd service and timer file: `/etc/systemd/system/mail_log_processor.service` and `/etc/systemd/system/mail_log_processor.timer`
 
 Insert this code inside the mail_log_processor.service:
@@ -148,7 +148,7 @@ systemctl enable mail_log_processor.timer
 systemctl start mail_log_processor.timer
 ```
 
-**Step 5.**
+**Step 5.**\
 Create a helper script for the live e-mailcount `/usr/local/bin/get_live_mail_count.sh` and insert this code in it:
 ```
 #!/bin/bash
@@ -163,9 +163,9 @@ echo $TOTAL
 then make it executable:
 `chmod +x /usr/local/bin/get_live_mail_count.sh`
 
-**Step 6.**
+**Step 6.**\
 Edit the approproiate META info inside `/usr/local/psa/admin/plib/modules/emailcounter/meta.xml`
 
-Step 7. (extremely important...! ;))
+Step 7. (extremely important...! ;))\
 Add the complementary icons for the extension inside `/usr/local/psa/admin/share/modules/emailcounter/_meta/icons`
 (note that you need to keep their names as they are: 32x32.png, 64x64.png, and 128x128.png)
