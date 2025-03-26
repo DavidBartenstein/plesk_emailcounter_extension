@@ -165,3 +165,7 @@ then make it executable:
 
 Step 6.
 Edit the approproiate META info inside `/usr/local/psa/admin/plib/modules/emailcounter/meta.xml`
+
+Step 7. (extremely important...! ;))
+Add the complementary icons for the extension inside `/usr/local/psa/admin/share/modules/emailcounter/_meta/icons`
+(note that you need to keep their names as they are: 32x32.png, 64x64.png, and 128x128.png)
